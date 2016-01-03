@@ -1,0 +1,46 @@
+<div class="row">
+ <div class="text-center">
+    <h3>Chicago Licensed Businesses Search</h3>
+    <input type="text" ng-model="searchString" style="width: 600px">
+  </div>
+</div>
+
+<div class="row">
+  <div class="text-center">
+    <h6 ng-show="model.result.length>0"><i>Showing {{model.result.length}} results</i></h6>
+  </div>
+</div>
+
+<br/>
+
+<div class="row">
+  <div class="text-center">
+    <a href="#mapAnchor" class="badge">Map</a>
+    <a href="#resultsAnchor" class="badge">Results</a>
+  </div>
+</div>
+
+<br/><br/>
+
+<div class="row" id="mapAnchor" >
+	<div class="col-lg-10 col-lg-offset-1">
+		<div id="map" style="width:100%;height:400px;"></div>
+	</div>
+</div>
+
+<br/>
+<div class="row" id="resultsAnchor">
+	<div class="col-lg-10 col-lg-offset-1">
+    <div class="row">
+  		<div class="col-lg-4" ng-repeat="item in model.result">
+  			<div class="well itemDetails">
+  				<span>Name: &nbsp;&nbsp;</span><span>{{item.name}}</span><br/>
+  				<span>Legal Name: &nbsp;&nbsp;</span><span>{{item.legalName}}</span><br/>
+  				<span>Address: &nbsp;&nbsp;</span><span>{{item.address}}</span><br/>
+  				<span>Type: &nbsp;&nbsp;</span><span>{{item.licenseType}}</span><br/>
+          <span class="badge" ng-click="seeOnMap(item, $index)">See on map</span>
+  			</div>
+  		</div>
+  </div>
+	</div>
+</div>
